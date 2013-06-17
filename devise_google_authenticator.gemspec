@@ -18,13 +18,13 @@ Gem::Specification.new do |s|
   s.summary = "Devise Google Authenticator Extension"
 
   s.required_ruby_version = '>= 1.8.6'
-  s.required_rubygems_version = '>= 1.3.6'
+  s.required_rubygems_version = '>= 1.8.0'
 
-  s.add_development_dependency('bundler', '~> 1.1.3')
+  s.add_development_dependency('bundler', '~> 1.3.5')
   
   {
-    'rails'  => ['>= 3.0.0', '<= 3.3.0'],
-    'devise' => ['>= 2.0.0', '<= 2.1.0'],
+    'rails'  => ['~> 4.0.0.rc2'],
+    'devise' => ['~> 3.0.0.rc'],
     'rotp'   => ['<= 1.3.2']
   }.each do |lib, version|
     s.add_runtime_dependency(lib, *version)

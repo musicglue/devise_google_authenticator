@@ -9,6 +9,7 @@ module Devise # :nodoc:
         base.extend ClassMethods
 
         base.class_eval do
+          attr_accessor :gauth_token
           before_validation :assign_auth_secret, :on => :create
           include InstanceMethods
         end
@@ -59,7 +60,7 @@ module Devise # :nodoc:
 
       module ClassMethods # :nodoc:
         def find_by_gauth_tmp(gauth_tmp)
-          find(:first, :conditions => {:gauth_tmp => gauth_tmp})
+          where(gauth_tmp: gauth_tmp).first
         end
         ::Devise::Models.config(self, :ga_timeout, :ga_timedrift)
       end
