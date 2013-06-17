@@ -21,6 +21,7 @@ module Devise # :nodoc:
         end
         
         def set_gauth_enabled(param)
+          param.delete(:email) if param.has_key?(:email)
           self.update_without_password(param)
         end
 
