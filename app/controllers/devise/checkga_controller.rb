@@ -4,7 +4,6 @@ class Devise::CheckgaController < Devise::SessionsController
   def show
     @tmpid = params[:id]
     self.resource = resource_class.find_by_gauth_tmp(params[:id]) if @tmpid
-    binding.pry
     
     if self.resource.nil?
       redirect_to :root
